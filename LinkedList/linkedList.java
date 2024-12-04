@@ -35,6 +35,88 @@ public class linkedList {
         }
     }
 
+    public void addIn(int index, int value) {
+        if(index == 0){
+            addFirst(value);
+            return;
+        }
+
+        else if(index == size){
+            addLast(value);
+            return;
+        }
+
+        Node temp = head;
+        for(int i=1; i<index; i++){ //Yaha i=1 se start karenge kyuki temp already head pe hai
+            temp = temp.next;
+        }
+
+        Node node = new Node(value, temp.next);
+        temp.next = node;
+
+        size++;
+    }
+
+    public int deleteFirst(){
+        int val = head.value;
+        head = head.next;
+        if(head == null){
+            tail = null;
+        }
+
+        size--;
+        return val;
+    }
+
+    public int deleteLast(){
+        if(size == 1){
+            return deleteFirst();
+        }
+
+        Node secondLast = getNode(size-2);
+
+        int val = tail.value;
+        tail = secondLast;
+        tail.next = null;
+        size--;
+        return val;
+    }
+
+    public int deleteAt(int index){
+        if(index == 0){
+            return deleteFirst();
+        }
+
+        else if(index == size-1){
+            return deleteLast();
+        }
+
+        Node temp = getNode(index-1);
+        int val = temp.next.value;
+        temp.next = temp.next.next;
+        size--;
+        return val;
+    }
+
+    public Node findNode(int value){
+        Node temp = head;
+        while(temp != null){
+            if(temp.value == value){
+                return temp;
+            }
+            temp = temp.next;
+        }
+        return null;
+    }
+
+    public Node getNode(int index){
+        Node temp = head;
+        for(int i=0; i<index; i++){
+            temp = temp.next;
+        }
+        return temp;
+    }
+
     public void display(){
         Node temp = head; //temp isliye lete hai taki head kbhi null na ho
         while(temp != null){
