@@ -14,6 +14,22 @@ public class doublyLinkedList {
         size++;
     }
 
+    public void insertLast(int value){
+        Node newNode = new Node(value);
+        Node temp = head;
+        if(head == null){
+            head = newNode;
+            size++;
+            return;
+        }
+        while(temp.next != null){
+            temp = temp.next;
+        }
+        temp.next = newNode;
+        newNode.prev = temp;
+        size++;
+    }
+
     public void insertInBetween(int value, int index){
         if(index == 0){
             insertFirst(value);
