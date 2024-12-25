@@ -15,14 +15,14 @@
         int start = search(nums, target, true);
         int end = search(nums, target, false);
 
-        ans[0] = start;
-        ans[1] = end;
+        ans[0] = start; //first occurence of target
+        ans[1] = end; //last occurence of target
 
         return ans;
     }
 
     int search(int[] nums, int target, boolean findStart){
-        int ans = -1;
+        int ans = -1; //initializing ans to -1
         int start = 0;
         int end = nums.length - 1;
         while(start <=end){
@@ -37,9 +37,9 @@
             else{
                 ans = mid; //possible ans
                 if(findStart){
-                    end = mid - 1;
+                    end = mid - 1; //applying binary sort to first half
                 } else {
-                    start = mid + 1;
+                    start = mid + 1; //applying binary sort to second half
                 }
             }
         }
