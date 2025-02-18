@@ -1,4 +1,20 @@
 public class doublyLinkedList {
+
+    static class Node{
+        int value;
+        Node next;
+        Node prev;
+
+        public Node(int value){
+            this.value = value;
+        }
+
+        public Node(int value, Node next, Node prev){
+            this.value = value;
+            this.next = next;
+            this.prev = prev;
+        }
+    }
     
     Node head;
     int size = 0;
@@ -68,21 +84,7 @@ public class doublyLinkedList {
         System.out.println("START");
     }
 
-    static class Node{
-        int value;
-        Node next;
-        Node prev;
-
-        public Node(int value){
-            this.value = value;
-        }
-
-        public Node(int value, Node next, Node prev){
-            this.value = value;
-            this.next = next;
-            this.prev = prev;
-        }
-    }
+    
 
     public static void main(String[] args) {
         doublyLinkedList list = new doublyLinkedList();
